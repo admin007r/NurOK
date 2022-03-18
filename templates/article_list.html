@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Postlar{% endblock title %}
+
+{% block content %}
+{#    <div class="card-group" >#}
+    {% for article in object_list %}
+    <center>
+        <div class="container" style="text-align: center;">
+        <div class="card col-12 col-md-12" style=" border: #05940c, 10px;" >
+            <div class="card-header">
+                <span  class="font-weight-bold"><a style="color: 05940c; text-transform: capitalize;" href="{% url 'article_detail' article.pk  %}"><h2>{{ article.title }}</h2></a></span>
+            </div>
+            {% if article.photo %}
+                <img class="card-img-top" src="{{ article.photo.url }}" alt="{{ article.title }}">
+            {%  endif %}
+            <div class="container">
+            <div class="card-body text-center col-12 col-md-12" >
+               <span style="font-size: x-large;">{{ article.summary }}... </span> <br> <br> <button style="background-color: 05940c; width: 90px; height: 40px; border: none; border-radius: 30px; margin: 6px; padding: 5px; color: aliceblue; cursor: pointer;"><a  style="color: aliceblue; text-decoration: none;" href="{% url 'article_detail' article.pk  %}">Batasil</a></button>
+            </div>
+            <div class="card-footer text-left text-muted">
+                <span class="text-muted">Muallif {{ article.author | title }} &middot; {{ article.date }}</span>
+            </div>
+        </div>
+    </div>
+       </div>
+    </center>
+        <br />
+    {% endfor %}
+ {#   </div>  #}
+{% endblock content %}

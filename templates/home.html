@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Bosh sahifa{% endblock title %}
+<!-- <style>
+    @media screen and (min-width=600) {
+        .load{
+            text-align: center;
+        }
+    }
+</style> -->
+{% block content %}
+<div class="col-12 col-md-12" style="width: 100%;">
+    <br/>
+    <div class="jumbotron  jumbotron-fluid" style="width: 100%;">
+
+
+        <center>
+        <span style="color: 05940c; font-size: 80px;    " class="  col-12 col-md-12 display-4">Assalom alaykum!</span>
+        {% if user.is_authenticated %}
+         <h1 style="display: inline--block;"><p class="col-12 col-md-12 load  "  style="color: aliceblue; text-transform: capitalize; font-size: 50px; text-align: ; background-color: 05940c; border-radius: 10px; display: inline-block; "> Hurmatli   {{ user.username }}</p></h1>
+      
+         {% else %}
+        {% endif %}
+
+        <!-- <p class="lead">Anvar Narzullayevning shaxsiy blogiga xush kelibsiz.</p>
+        <hr class="my-4">
+        <p>Bu yerda siz dasturlash va dasturchilarga oid so'nggi yangiliklardan xabardor bo'lib turasiz.</p>
+        <p class="lead"> -->
+        </center>
+            <br>
+            <br>
+            <a  class="btn  btn-lg \" href="{% url 'article_list' %}" role="button" style="background-color: 05940c; margin-left: 10%; color: aliceblue;">Oldinga</a>
+         
+       
+    </div>
+</div>
+
+{% endblock content %}
